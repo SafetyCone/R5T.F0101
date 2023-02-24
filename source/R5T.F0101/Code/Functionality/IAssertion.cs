@@ -15,17 +15,17 @@ namespace R5T.F0101
     public partial interface IAssertion : IFunctionalityMarker
     {
         public void AreEqual<T>(
-            T actual,
-            T expected)
+            T expected,
+            T actual)
         {
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
 
         public void AreEqual_ForArray<T>(
-            T[] actual,
-            T[] expected)
+            T[] expected,
+            T[] actual)
         {
-            CollectionAssert.AreEqual(actual, expected);
+            CollectionAssert.AreEqual(expected, actual);
         }
 
         /// <summary>
