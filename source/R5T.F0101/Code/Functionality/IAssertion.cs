@@ -146,7 +146,7 @@ namespace R5T.F0101
         }
 
         public void AreEqual<TInput, TOutput>(
-            Expectation<TInput, TOutput> expectation,
+            IExpectation<TInput, TOutput> expectation,
             TOutput encounteredValue)
         {
             var areEqual = expectation.Verify(encounteredValue);
@@ -155,7 +155,18 @@ namespace R5T.F0101
         }
 
         public void AreEqual<TInput, TOutput>(
-            IEnumerable<Expectation<TInput, TOutput>> expectations,
+            IExpectation<TInput, TOutput> expectation,
+            Func<TInput, TOutput> function)
+        {
+            var output = function(expectation.Input);
+
+            this.AreEqual(
+                expectation,
+                output);
+        }
+
+        public void AreEqual<TInput, TOutput>(
+            IEnumerable<IExpectation<TInput, TOutput>> expectations,
             IEnumerable<TOutput> encounteredValues)
         {
             var pairs = expectations.ZipWithEqualLengthRequirement(encounteredValues);
