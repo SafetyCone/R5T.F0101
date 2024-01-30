@@ -11,9 +11,15 @@ using R5T.T0132;
 
 namespace R5T.F0101
 {
+    /// <summary>
+    /// OBSOLETE - See R5T.L0088.F001.
+    /// </summary>
     [FunctionalityMarker]
     public partial interface IAssertion : IFunctionalityMarker
     {
+        /// <summary>
+        /// OBSOLETE - See R5T.L0088.F001.
+        /// </summary>
         public void AreEqual<T>(
             T expected,
             T actual)
@@ -21,6 +27,9 @@ namespace R5T.F0101
             Assert.AreEqual(expected, actual);
         }
 
+        /// <summary>
+        /// OBSOLETE - See R5T.L0088.F001.
+        /// </summary>
         public void AreEqual_ForArray<T>(
             T[] expected,
             T[] actual)
@@ -29,8 +38,11 @@ namespace R5T.F0101
         }
 
         /// <summary>
+        /// <para>OBSOLETE - See R5T.L0088.F001.</para>
+        /// 
         /// Allows explicitly stating that an action should not thrown an exception.
-        /// With MSTest, if code throws an exception the test will fail. However, relying on this behavior means that test code will lack an assertion, which makes these test look different from all other tests.
+        /// With MSTest, if code throws an exception the test will fail. However, relying on this behavior means that test code will lack an assertion,
+        /// which makes these tests look different from all other tests.
         /// This method allows a conforming assertion to be made in the case of testing for no exceptions.
         /// </summary>
         /// <remarks>
@@ -49,12 +61,18 @@ namespace R5T.F0101
             }
         }
 
+        /// <summary>
+        /// OBSOLETE - See R5T.L0088.F001.
+        /// </summary>
         public void IsNull(
             object value)
         {
             Assert.IsNull(value);
         }
 
+        /// <summary>
+        /// OBSOLETE - See R5T.L0088.F001.
+        /// </summary>
         public void ThrowsException<TException>(
             Action action)
             where TException : Exception
@@ -62,6 +80,9 @@ namespace R5T.F0101
             Assert.ThrowsException<TException>(action);
         }
 
+        /// <summary>
+        /// OBSOLETE - See R5T.L0088.F001.
+        /// </summary>
         public void ThrowsException<TException>(
             Action action,
             string expectedMessageOfException)
@@ -92,6 +113,9 @@ namespace R5T.F0101
             }
         }
 
+        /// <summary>
+        /// OBSOLETE - See R5T.L0088.F001.
+        /// </summary>
         public async Task ThrowsExceptionAsync(
             Func<Task> action)
         {
@@ -111,6 +135,9 @@ namespace R5T.F0101
             }
         }
 
+        /// <summary>
+        /// OBSOLETE - See R5T.L0088.F001.
+        /// </summary>
         public async Task ThrowsExceptionAsync<TException>(
             Func<Task> action)
             where TException : Exception
@@ -118,6 +145,9 @@ namespace R5T.F0101
             await Assert.ThrowsExceptionAsync<TException>(action);
         }
 
+        /// <summary>
+        /// OBSOLETE - See R5T.L0088.F001.
+        /// </summary>
         public void AreEqual<TInput, TOutput>(
             InputOutputPair<TInput, TOutput> expectedValue,
             TOutput encounteredValue)
@@ -125,6 +155,9 @@ namespace R5T.F0101
             Assert.AreEqual(expectedValue.Output, encounteredValue);
         }
 
+        /// <summary>
+        /// OBSOLETE - See R5T.L0088.F002.
+        /// </summary>
         public void AreEqual<TInput, TOutput>(
             InputOutputPair<TInput, TOutput> expectedValue,
             TOutput encounteredValue,
